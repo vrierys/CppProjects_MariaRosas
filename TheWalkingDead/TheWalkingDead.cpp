@@ -1,31 +1,57 @@
 // TheWalkingDead.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <ctime>
 
-enum class Weapon{ FISTS, GUN, SHOTGUN, REVOLVER, SNIPER, MACHINE_GUN, MAX};
+
+enum Weapon { FISTS, GUN, SHOTGUN, REVOLVER, SNIPER, MACHINE_GUN, MAX };
 
 class Zombie;
 
 class Player {
 public:
+
 	Player();
 	Weapon weapon;
 	float precision;
 	int life;
 
 	void attack(Zombie &);
-	bool isAlive();
+	bool isAlive() {
+		return life > 0;
+	}
 };
 
-Player::Player() : weapon(static_cast<Weapon>(rand() % 7)), precision ((rand() % 11)/10.0f), life (rand() % 101)
-{};
+Player::Player() {
+
+	int aux = rand() % 6;
+
+	switch (aux) {
+
+	case 0: weapon = FISTS;
+		break;
+	case 1: weapon = GUN;
+		break;
+	case 2: weapon = SHOTGUN;
+		break;
+	case 3: weapon = REVOLVER;
+		break;
+	case 4: weapon = SNIPER;
+		break;
+	case 5: weapon = MACHINE_GUN;
+		break;
+	}
+
+	precision = (rand() % 10) / 10.0f;
+	life = rand() % 101;
+
+
+};
 
 class Zombie {
-public: 
+public:
 
 	Zombie();
 	int distanceToPlayer;
@@ -34,18 +60,94 @@ public:
 	int life;
 
 	void attack(Player &);
-	bool isAlive();
+	bool isAlive() {
+		return life > 0;
+	}
 };
 
-Zombie::Zombie() : distanceToPlayer((rand() % 201) + 20), speed((rand() % 21) / 1.0f), damage((rand() % 21) / 1.0f), life(rand() % 101)
-{};
+Zombie::Zombie() {
 
-void main()
-{
-	const int NUM_ZOMBIES = 10;
+	distanceToPlayer = rand() % 180;
+	speed = (rand() % 200) / 10.0f;
+	damage = (rand() % 200) / 10.0f;
+	life = rand() % 101;
+}
 
+void Player::attack(Zombie &z) {
+
+	int daño;
+
+	switch (weapon) {
+
+	case FISTS: daño = 0;
+		break;
+	case GUN: daño = 1;
+		break;
+	case SHOTGUN: daño = 2;
+		break;
+	case REVOLVER: daño = 3;
+		break;
+	case SNIPER: daño = 4;
+		break;
+	case MACHINE_GUN: daño = 5;
+		break;
+	}
+
+	z.life = z.life - daño * precision;
+
+};
+
+void Zombie::attack(Player &p) {
+
+	if (distanceToPlayer <= 0) {
+
+		p.life = p.life - damage;
+	}
+
+	else {
+		distanceToPlayer = distanceToPlayer - 1;
+	}
+
+}
+
+
+void main() {
+
+	const int MAX_ZOMBIES = 10;
 	srand(time(nullptr));
-
 	Player player;
-	int zombies[NUM_ZOMBIES];
+	static Zombie arr[MAX_ZOMBIES];
+	bool ZombiesAreAlive = true;
+
+
+	do {
+
+		std::cout << player.weapon << ' ' << player.precision << ' ' << player.life << std::endl;
+
+		ZombiesAreAlive = false;
+
+
+		for (int i = 0; i < MAX_ZOMBIES; i++) {
+
+			if (arr[i].isAlive == true) {
+				player.attack(arr[i]);
+				arr[i].attack(player);
+				ZombiesAreAlive = true;
+			}
+
+			std::cout << arr[i].speed << ' ' << arr[i].life << ' ' << arr[i].isAlive << ' ' << arr[i].distanceToPlayer << ' ' << arr[i].damage << ' ' << arr[i].attack << std::endl;
+		}
+
+	} while (player.isAlive == true && ZombiesAreAlive == true);
+
+	if (player.isAlive == false) {
+
+		std::cout << "Puto manco chaval" << std::endl;
+	}
+
+	else {
+
+		std::cout << "Encima de manco, subnormal" << std::endl;
+
+	}
 }
