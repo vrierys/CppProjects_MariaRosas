@@ -1,6 +1,7 @@
 // TheWalkingDead.cpp : Defines the entry point for the console application.
 //
 
+#include "stdafx.h"
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -142,12 +143,12 @@ void main() {
 
 	if (player.isAlive == false) {
 
-		std::cout << "Puto manco chaval" << std::endl;
+		std::cout << "Has muerto" << std::endl;
 	}
 
 	else {
 
-		std::cout << "Encima de manco, subnormal" << std::endl;
+		std::cout << "Continue..." << std::endl;
 
 	}
 }
