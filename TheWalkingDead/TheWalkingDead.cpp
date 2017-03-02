@@ -1,13 +1,13 @@
 // TheWalkingDead.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h"
+
 #include <iostream>
 #include <string>
 #include <ctime>
 
 
-enum Weapon { FISTS, GUN, SHOTGUN, REVOLVER, SNIPER, MACHINE_GUN, MAX };
+enum class Weapon { FISTS, GUN, SHOTGUN, REVOLVER, SNIPER, MACHINE_GUN, MAX };
 
 class Zombie;
 
@@ -26,29 +26,9 @@ public:
 };
 
 Player::Player() {
-
-	int aux = rand() % 6;
-
-	switch (aux) {
-
-	case 0: weapon = FISTS;
-		break;
-	case 1: weapon = GUN;
-		break;
-	case 2: weapon = SHOTGUN;
-		break;
-	case 3: weapon = REVOLVER;
-		break;
-	case 4: weapon = SNIPER;
-		break;
-	case 5: weapon = MACHINE_GUN;
-		break;
-	}
-
+	weapon = static_cast <Weapon>(rand() % static_cast<int>(Weapon::MAX));
 	precision = (rand() % 10) / 10.0f;
 	life = rand() % 101;
-
-
 };
 
 class Zombie {
@@ -78,21 +58,7 @@ void Player::attack(Zombie &z) {
 
 	int daño;
 
-	switch (weapon) {
-
-	case FISTS: daño = 0;
-		break;
-	case GUN: daño = 1;
-		break;
-	case SHOTGUN: daño = 2;
-		break;
-	case REVOLVER: daño = 3;
-		break;
-	case SNIPER: daño = 4;
-		break;
-	case MACHINE_GUN: daño = 5;
-		break;
-	}
+	daño = static_cast <int>(weapon);
 
 	z.life = z.life - daño * precision;
 
@@ -123,7 +89,7 @@ void main() {
 
 	do {
 
-		std::cout << player.weapon << ' ' << player.precision << ' ' << player.life << std::endl;
+		std::cout << player.life << std::endl;
 
 		ZombiesAreAlive = false;
 
@@ -143,7 +109,7 @@ void main() {
 
 	if (player.isAlive == false) {
 
-		std::cout << "Has muerto" << std::endl;
+		std::cout << "Te han matado" << std::endl;
 	}
 
 	else {
