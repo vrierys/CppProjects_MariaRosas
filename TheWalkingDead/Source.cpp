@@ -1,7 +1,3 @@
-// TheWalkingDead.cpp : Defines the entry point for the console application.
-//
-
-
 #include <iostream>
 #include <string>
 #include <ctime>

@@ -1,6 +1,3 @@
-// Random EnemyGenerator.cpp : Defines the entry point for the console application.
-//
-
 #include <iostream>
 #include <string>
 #include <ctime>
@@ -73,7 +70,7 @@ void main() {
 
 	static Enemy arr[MAX_ENEMIES];
 
-	for (int i = 0; i < 6; i++) {
+	for (int i = 0; i < MAX_ENEMIES; i++) {
 
 		arr[i] = CreateRandomEnemy();
 
