@@ -15,6 +15,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Vectores", "Vectores\Vector
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Deque", "Deque\Deque.vcxproj", "{11056DE3-B076-4038-B959-11491E7AE4D6}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Stack", "Stack\Stack.vcxproj", "{CF760C61-C90F-44CC-9D3D-FC69A1392E95}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -71,6 +73,14 @@ Global
 		{11056DE3-B076-4038-B959-11491E7AE4D6}.Release|x64.Build.0 = Release|x64
 		{11056DE3-B076-4038-B959-11491E7AE4D6}.Release|x86.ActiveCfg = Release|Win32
 		{11056DE3-B076-4038-B959-11491E7AE4D6}.Release|x86.Build.0 = Release|Win32
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Debug|x64.ActiveCfg = Debug|x64
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Debug|x64.Build.0 = Debug|x64
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Debug|x86.ActiveCfg = Debug|Win32
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Debug|x86.Build.0 = Debug|Win32
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Release|x64.ActiveCfg = Release|x64
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Release|x64.Build.0 = Release|x64
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Release|x86.ActiveCfg = Release|Win32
+		{CF760C61-C90F-44CC-9D3D-FC69A1392E95}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
