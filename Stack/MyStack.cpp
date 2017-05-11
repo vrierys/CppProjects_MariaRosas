@@ -29,8 +29,6 @@ void MyStack::push(int elem)
 	t = new node{elem, s};
 	s = t;
 	
-
-
 }
 
 int MyStack::top()
