@@ -2,6 +2,7 @@
 #include <iostream>
 #include <queue>
 #include <set>
+#include "MyList.h"
 
 
 std::list<int> superMerge(std::list<int> l1, std::list<int> l2) {
@@ -117,7 +118,18 @@ void removeElement(std::list<int> &l1, int elem) {
 
 void main() {
 
-	std::list<int> l1{ 2, 3, 7, 8 };
+	MyList b;
+
+	b.push_front(3);
+	b.push_front(2);
+	b.push_front(4);
+
+	MyList a(b);
+
+
+
+
+	/*std::list<int> l1{ 2, 3, 7, 8 };
 	std::list<int> l2{ 5, 9, 1, 4 };
 	superMerge(l1, l2);
 	std::cout << std::endl;
@@ -131,7 +143,7 @@ void main() {
 	std::list<int> repes2{ 2, 2, 4, 7, 8, 9, 8, 5 };
 	removeElement(repes2, 8);
 	std::list<int>pal{ 1,2,3,4,4,3,2,1 };
-	/*palindrome(pal);*/
+	palindrome(pal);*/
 
 
 
