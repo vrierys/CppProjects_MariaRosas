@@ -1,22 +1,30 @@
 #pragma once
+
 class MyList
 {
 public:
-	MyList();
-	MyList(MyList &m);
-	void push_front(int elem);
-	~MyList();
-	
-
-	struct node {
+	struct node
+	{
 		int info;
 		node *next;
 		node *previous;
 	};
 
 	int size;
-	node *first;
 	node *last;
+	node *first;
+	MyList();
+	MyList(MyList &a);
+	~MyList();
+	void push_front(int num);
+	void push_back(int num);
+	void pop_front();
+	void remove(int value);
+	void reverse();
+	void shiftLeft();
+	void shiftRight();
+	void rotateLeft();
+	void rotateRight();
 
 };
 

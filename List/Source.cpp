@@ -5,7 +5,7 @@
 #include "MyList.h"
 
 
-std::list<int> superMerge(std::list<int> l1, std::list<int> l2) {
+/*std::list<int> superMerge(std::list<int> l1, std::list<int> l2) {
 
 
 	std::list<int> copia1(l1);
@@ -96,7 +96,7 @@ void removeElement(std::list<int> &l1, int elem) {
 	}
 }
 
-/*bool palindrome(std::list<int> l1) {
+bool palindrome(std::list<int> l1) {
 
 	for (std::list<int>::iterator it = l1.begin(); it != l1.end(); ++it) {
 
@@ -114,17 +114,19 @@ void removeElement(std::list<int> &l1, int elem) {
 }*/
 
 
-
-
 void main() {
 
 	MyList b;
 
+	b.push_front(1);
 	b.push_front(3);
 	b.push_front(2);
 	b.push_front(4);
 
-	MyList a(b);
+	//b.shiftLeft();
+	//b.shiftRight();
+	//b.rotateRight();
+	b.rotateLeft();
 
 
 
